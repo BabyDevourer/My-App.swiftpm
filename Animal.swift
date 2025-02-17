@@ -2,8 +2,6 @@
 //  Animal.swift
 //  VietnamWildlifeConservation
 //
-//  Created by Mỹ Nguyễn on 24/1/25.
-//
 import SwiftUI
 
 enum AnimalType {
@@ -100,4 +98,5 @@ struct Animal: Identifiable {
     let protectedAreas: String
     let threats: [AnimalThreat]
     let imageName : String
+    let ARName : String
 }

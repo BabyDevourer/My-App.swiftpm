@@ -2,8 +2,7 @@
 //  VietnamMapView.swift
 //  VietnamWildlifeConservation
 //
-//  Created by Mỹ Nguyễn on 27/1/25.
-//
+
 
 import SwiftUI
 import MapKit

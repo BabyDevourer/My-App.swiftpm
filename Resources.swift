@@ -2,8 +2,6 @@
 //  Resources.swift
 //  VietnamWildlifeConservation
 //
-//  Created by Mỹ Nguyễn on 27/1/25.
-//
 
 import Foundation
 import CoreLocation
@@ -13,31 +11,31 @@ struct Resources {
     static let vietnamCoordinates = CLLocationCoordinate2D(latitude: 14.0583, longitude: 108.2772)
     
     // MARK:  Animals
-    static let saola = Animal(name: "Saola", scientificName: "Pseudoryx nghetinhensis", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 100, protectedAreas: "Vũ Quang NP, Pù Mát NP, Phong Nha-Kẻ Bàng NP", threats: [.poaching, .habitatDestruction], imageName: "saolaImage")
+    static let saola = Animal(name: "Saola", scientificName: "Pseudoryx nghetinhensis", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 100, protectedAreas: "Vũ Quang NP, Pù Mát NP, Phong Nha-Kẻ Bàng NP", threats: [.poaching, .habitatDestruction], imageName: "saolaImage", ARName: "saola3D")
     
-    static let indochineseTiger = Animal(name: "Indochinese Tiger", scientificName: "Panthera tigris corbetti", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 5, protectedAreas: "Yok Đôn NP, Pù Mát NP, Cát Tiên NP", threats: [.poaching, .deforestation], imageName: "indochineseTigerImage")
+    static let indochineseTiger = Animal(name: "Indochinese Tiger", scientificName: "Panthera tigris corbetti", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 5, protectedAreas: "Yok Đôn NP, Pù Mát NP, Cát Tiên NP", threats: [.poaching, .deforestation], imageName: "indochineseTigerImage", ARName: "indochineseTiger3D")
     
-    static let asianElephant = Animal(name: "Asian Elephant", scientificName: "Elephas maximus", type: .mammal, conservationStatus: .endangered, estimatedPopulation: 100, protectedAreas: "Yok Đôn NP, Cát Tiên NP, Pù Mát NP", threats: [.habitatLoss, .humanWildlifeConflict], imageName: "asianElephantImage")
+    static let asianElephant = Animal(name: "Asian Elephant", scientificName: "Elephas maximus", type: .mammal, conservationStatus: .endangered, estimatedPopulation: 100, protectedAreas: "Yok Đôn NP, Cát Tiên NP, Pù Mát NP", threats: [.habitatLoss, .humanWildlifeConflict], imageName: "asianElephantImage", ARName: "asianElephant3D")
     
-    static let delacoursLangur = Animal(name: "Delacour's Langur", scientificName: "Trachypithecus delacouri", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 300, protectedAreas: "Cúc Phương NP, Vân Long NR", threats: [.hunting, .habitatLoss], imageName: "delacourLangurImage")
+    static let delacoursLangur = Animal(name: "Delacour's Langur", scientificName: "Trachypithecus delacouri", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 300, protectedAreas: "Cúc Phương NP, Vân Long NR", threats: [.hunting, .habitatLoss], imageName: "delacourLangurImage", ARName: "delacoursLangur3D")
     
-    static let redShankedDoucLangur = Animal(name: "Red-shanked Douc Langur", scientificName: "Pygathrix nemaeus", type: .mammal, conservationStatus: .endangered, estimatedPopulation: 2000, protectedAreas: "Sơn Trà NR, Phong Nha-Kẻ Bàng NP, Bạch Mã NP", threats: [.deforestation, .illegalPetTrade], imageName: "redShankedDoucLangurImage")
+    static let redShankedDoucLangur = Animal(name: "Red-shanked Douc Langur", scientificName: "Pygathrix nemaeus", type: .mammal, conservationStatus: .endangered, estimatedPopulation: 2000, protectedAreas: "Sơn Trà NR, Phong Nha-Kẻ Bàng NP, Bạch Mã NP", threats: [.deforestation, .illegalPetTrade], imageName: "redShankedDoucLangurImage", ARName: "redShankedDoucLangur3D")
     
-    static let tonkinSnubNosedMonkey = Animal(name: "Tonkin Snub-nosed Monkey", scientificName: "Rhinopithecus avunculus", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 250, protectedAreas: "Khau Ca NR, Na Hang NR", threats: [.habitatLoss, .hunting], imageName: "tonkinSnubNosedMonkeyImage")
+    static let tonkinSnubNosedMonkey = Animal(name: "Tonkin Snub-nosed Monkey", scientificName: "Rhinopithecus avunculus", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: 250, protectedAreas: "Khau Ca NR, Na Hang NR", threats: [.habitatLoss, .hunting], imageName: "tonkinSnubNosedMonkeyImage", ARName: "tonkinSnubNosedMonkey3D")
     
-    static let sundaPangolin = Animal(name: "Sunda Pangolin", scientificName: "Manis javanica", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: nil, protectedAreas: "Cát Tiên NP, Pù Mát NP, Cúc Phương NP", threats: [.illegalWildlifeTrade], imageName: "sundaPangolinImage")
+    static let sundaPangolin = Animal(name: "Sunda Pangolin", scientificName: "Manis javanica", type: .mammal, conservationStatus: .criticallyEndangered, estimatedPopulation: nil, protectedAreas: "Cát Tiên NP, Pù Mát NP, Cúc Phương NP", threats: [.illegalWildlifeTrade], imageName: "sundaPangolinImage", ARName: "sundaPangolin3D")
     
-    static let edwardsPheasant = Animal(name: "Edwards's Pheasant", scientificName: "Lophura edwardsi", type: .bird, conservationStatus: .criticallyEndangered, estimatedPopulation: nil, protectedAreas: "Bạch Mã NP, Phong Điền NR", threats: [.habitatLoss, .poaching], imageName: "edwardsPheasantImage")
+    static let edwardsPheasant = Animal(name: "Edwards's Pheasant", scientificName: "Lophura edwardsi", type: .bird, conservationStatus: .criticallyEndangered, estimatedPopulation: nil, protectedAreas: "Bạch Mã NP, Phong Điền NR", threats: [.habitatLoss, .poaching], imageName: "edwardsPheasantImage", ARName:  "edwardsPheasant3D")
     
-    static let sarusCrane = Animal(name: "Sarus Crane", scientificName: "Antigone antigone", type: .bird, conservationStatus: .vulnerable, estimatedPopulation: 100, protectedAreas: "Tràm Chim NP", threats: [.wetlandDesctruction], imageName: "sarusCraneImage")
+    static let sarusCrane = Animal(name: "Sarus Crane", scientificName: "Antigone antigone", type: .bird, conservationStatus: .vulnerable, estimatedPopulation: 100, protectedAreas: "Tràm Chim NP", threats: [.wetlandDesctruction], imageName: "sarusCraneImage", ARName: "sarusCrane3D")
     
-    static let whiteShoulderedIbis = Animal(name: "White-shouldered Ibis", scientificName: "Pseudibis davisoni", type: .bird, conservationStatus: .criticallyEndangered, estimatedPopulation: 50, protectedAreas: "Tràm Chim NP, U Minh Thượng NP", threats: [.habitatDestruction], imageName: "whiteShoulderedIbisImage")
+    static let whiteShoulderedIbis = Animal(name: "White-shouldered Ibis", scientificName: "Pseudibis davisoni", type: .bird, conservationStatus: .criticallyEndangered, estimatedPopulation: 50, protectedAreas: "Tràm Chim NP, U Minh Thượng NP", threats: [.habitatDestruction], imageName: "whiteShoulderedIbisImage", ARName: "whiteShoulderedIbis3D")
     
-    static let siameseCrocodile = Animal(name: "Siamese Crocodile", scientificName: "Crocodylus siamensis", type: .reptile, conservationStatus: .criticallyEndangered, estimatedPopulation: 50, protectedAreas: "Cát Tiên NP, U Minh Thượng NP", threats: [.habitatDestruction, .farming, .poachingForLeatherTrade], imageName: "siameseCrocodileImage")
+    static let siameseCrocodile = Animal(name: "Siamese Crocodile", scientificName: "Crocodylus siamensis", type: .reptile, conservationStatus: .criticallyEndangered, estimatedPopulation: 50, protectedAreas: "Cát Tiên NP, U Minh Thượng NP", threats: [.habitatDestruction, .farming, .poachingForLeatherTrade], imageName: "siameseCrocodileImage", ARName: "siameseCrocodile3D")
     
-    static let vietnameseLeafTurtle = Animal(name: "Vietnamese Leaf Turtle", scientificName: "Geoemyda spengleri", type: .reptile, conservationStatus: .endangered, estimatedPopulation: nil, protectedAreas: "Cúc Phương NP, Bạch Mã NP", threats: [.illegalPetTrade, .habitatLoss], imageName: "vietnameseLeafTurtleImage")
+    static let vietnameseLeafTurtle = Animal(name: "Vietnamese Leaf Turtle", scientificName: "Geoemyda spengleri", type: .reptile, conservationStatus: .endangered, estimatedPopulation: nil, protectedAreas: "Cúc Phương NP, Bạch Mã NP", threats: [.illegalPetTrade, .habitatLoss], imageName: "vietnameseLeafTurtleImage", ARName: "vietnameseLeafTurtle3D")
     
-    static let annamChorusFrog = Animal(name: "Annam Chorus Frog", scientificName: "Microhyla annamensis", type: .amphibian, conservationStatus: .endangered, estimatedPopulation: nil, protectedAreas: "Bạch Mã NP, Phong Nha-Kẻ Bàng NP", threats: [.deforestation, .waterPollution], imageName: "annamChorusFrogImage")
+    static let annamChorusFrog = Animal(name: "Annam Chorus Frog", scientificName: "Microhyla annamensis", type: .amphibian, conservationStatus: .endangered, estimatedPopulation: nil, protectedAreas: "Bạch Mã NP, Phong Nha-Kẻ Bàng NP", threats: [.deforestation, .waterPollution], imageName: "annamChorusFrogImage", ARName: "annamChorusFrog3D")
     
     static let animals: [Animal] = [saola, indochineseTiger, asianElephant, delacoursLangur, redShankedDoucLangur, tonkinSnubNosedMonkey, sundaPangolin, edwardsPheasant, sarusCrane, whiteShoulderedIbis, siameseCrocodile, vietnameseLeafTurtle, annamChorusFrog]
     

@@ -2,8 +2,6 @@
 //  AnimalView.swift
 //  VietnamWildlifeConservation
 //
-//  Created by Mỹ Nguyễn on 1/2/25.
-//
 
 import SwiftUI
 import ARKit
@@ -110,7 +108,7 @@ struct AnimalPreview: View {
                 Spacer()
                 Button {
                     if filename == nil {
-                        filename = "cup_saucer_set.usdz"
+                        filename = "\(animal.ARName).usdz"
                     } else {
                         filename = nil
                     }
@@ -130,37 +128,68 @@ struct ARAnimalViewContainer: UIViewRepresentable {
     @Binding var filename: String?
     
     func makeUIView(context: Context) -> ARView {
-        let arView = ARAnimalView(frame: .zero)
-        return arView
-        
+        return ARAnimalView(frame: .zero, filename: filename ?? "default_model.usdz")
     }
-    
     func updateUIView(_ uiView: ARView, context: Context) {
-        if let filename = filename {
-            // Resetting the ARView to its initial state
-            if let config = uiView.session.configuration {
-                uiView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
-                
-                guard let modelEntity = try? Entity.loadModel(named: filename) else { return }
-                let anchor = AnchorEntity(plane: .horizontal)
-                anchor.addChild(modelEntity)
-                uiView.scene.addAnchor(anchor)
-            } else {
-                uiView.scene.anchors.removeAll()
-                
-            }
+        guard let filename = filename else {
+            uiView.scene.anchors.removeAll() // Clear AR scene if filename is nil
+            return
         }
-        
+
+        // Remove all existing anchors to prevent duplicates
+        uiView.scene.anchors.removeAll()
+
+        // Reset the AR session
+        if let config = uiView.session.configuration {
+            uiView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
+
+            // Load and add the new model
+            guard let modelEntity = try? Entity.load(named: filename, in: Bundle.main) else {
+                print("Failed to load model: \(filename)")
+                return
+            }
+            let anchor = AnchorEntity(plane: .horizontal)
+            anchor.addChild(modelEntity)
+            uiView.scene.addAnchor(anchor)
+        }
     }
     
     class ARAnimalView: ARView {
         private var cancellable: AnyCancellable? = nil
+        private var filename: String?
         
-        required init(frame frameRect: CGRect) {
-            super.init(frame: frameRect)
-            self.setUpARView()
+        required init(frame frameRect: CGRect, filename: String?) {
+                self.filename = filename
+                super.init(frame: frameRect)
+                self.setUpARView()
+                self.loadModel()
             //self.addAnimalToHorizontalPlane()
-        }
+            }
+        
+        func setFilename(_ newFilename: String?) {
+                guard let newFilename = newFilename else { return }
+                self.filename = newFilename
+                self.loadModel()
+            }
+        private func loadModel() {
+               guard let filename = filename else {
+                   print("Filename is nil. Cannot load model.")
+                   return
+               }
+
+               guard let modelEntity = try? Entity.load(named: filename, in: Bundle.main) else {
+                   print("Failed to load model: \(filename)")
+                   return
+               }
+
+               self.scene.anchors.removeAll()
+               let anchor = AnchorEntity(plane: .horizontal)
+               anchor.addChild(modelEntity)
+               self.scene.addAnchor(anchor)
+            
+                
+           }
+        
         
         func setUpARView() {
             let config = ARWorldTrackingConfiguration()
@@ -175,17 +204,29 @@ struct ARAnimalViewContainer: UIViewRepresentable {
         }
         
         func addAnimalToHorizontalPlane() {
-            guard let modelEntity = try? Entity.load(named: "cup_saucer_set.usdz", in: Bundle.main) else {
-                print("Failed to load model.")
+            guard let filename = filename else {
+                print("Filename is nil. Cannot load model.")
                 return
             }
+
+            guard let modelEntity = try? Entity.load(named: filename, in: Bundle.main) else {
+                print("Failed to load model: \(filename)")
+                return
+            }
+
             let anchor = AnchorEntity(plane: .horizontal)
             anchor.addChild(modelEntity.clone(recursive: false))
             self.scene.addAnchor(anchor)
         }
         
-        @MainActor @preconcurrency required dynamic init?(coder decoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+
+            required init(frame frameRect: CGRect) {
+                super.init(frame: frameRect)
+                self.setUpARView()
+            }
+
+            required init?(coder decoder: NSCoder) {
+                super.init(coder: decoder)
+            }
         }
-    }
 }
